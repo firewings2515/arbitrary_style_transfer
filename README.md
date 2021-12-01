@@ -1,3 +1,4 @@
+# It's a forked from elleryqueenhomels. Test for my datasets.
 # Arbitrary-Style-Transfer
 
 Arbitrary-Style-Per-Model Fast Neural Style Transfer Method
