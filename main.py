@@ -51,7 +51,7 @@ def main():
 
             stylize(content_imgs_path, style_imgs_path, OUTPUTS_DIR, 
                     ENCODER_WEIGHTS_PATH, model_save_path, 
-                    infer_weight)
+                    infer_weight=infer_weight)
 
         print('\n>>> Successfully! Done all stylizing...\n')
 
