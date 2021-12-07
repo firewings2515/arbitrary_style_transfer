@@ -21,8 +21,8 @@ MODEL_SAVE_PATHS = [
 ]
 
 # for inferring (stylize)
-INFERRING_CONTENT_DIR = 'images/content'
-INFERRING_STYLE_DIR = 'images/style'
+INFERRING_CONTENT_DIR = 'images/Images/content'
+INFERRING_STYLE_DIR = 'images/Images/style'
 OUTPUTS_DIR = 'outputs'
 
 

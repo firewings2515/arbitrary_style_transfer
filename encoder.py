@@ -4,7 +4,8 @@
 # https://github.com/anishathalye/neural-style/blob/master/vgg.py
 
 import numpy as np
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_eager_execution()
 
 
 ENCODER_LAYERS = (

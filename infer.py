@@ -1,7 +1,8 @@
 # Use a trained Image Transform Net to generate
 # a style transferred image with a specific style
 
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_eager_execution()
 
 from style_transfer_net import StyleTransferNet
 from utils import get_images, save_images

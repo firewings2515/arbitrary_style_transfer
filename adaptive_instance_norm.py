@@ -1,6 +1,7 @@
 # Adaptive Instance Normalization
 
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_eager_execution()
 
 
 def AdaIN(content, style, epsilon=1e-5):
