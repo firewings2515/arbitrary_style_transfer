@@ -9,7 +9,7 @@ from utils import get_images, save_images
 
 
 def stylize(contents_path, styles_path, output_dir, encoder_path, model_path, 
-            resize_height=None, resize_width=None, suffix=None):
+            resize_height=None, resize_width=None, infer_weight=1.0):
 
     if isinstance(contents_path, str):
         contents_path = [contents_path]
@@ -25,7 +25,7 @@ def stylize(contents_path, styles_path, output_dir, encoder_path, model_path,
 
         stn = StyleTransferNet(encoder_path)
 
-        output_image = stn.transform(content, style)
+        output_image = stn.transform(content, style, infer_weight)
 
         sess.run(tf.global_variables_initializer())
 
@@ -48,7 +48,8 @@ def stylize(contents_path, styles_path, output_dir, encoder_path, model_path,
 
                 outputs.append(result[0])
 
-    save_images(outputs, contents_path, styles_path, output_dir, suffix=suffix)
+
+    save_images(outputs, contents_path, styles_path, output_dir, suffix='-' + str(infer_weight))
 
     return outputs
 

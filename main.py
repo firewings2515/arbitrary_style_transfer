@@ -25,7 +25,7 @@ INFERRING_CONTENT_DIR = 'images/Images/content'
 INFERRING_STYLE_DIR = 'images/Images/style'
 OUTPUTS_DIR = 'outputs'
 
-
+infer_weight = 1.0
 def main():
 
     if IS_TRAINING:
@@ -51,7 +51,7 @@ def main():
 
             stylize(content_imgs_path, style_imgs_path, OUTPUTS_DIR, 
                     ENCODER_WEIGHTS_PATH, model_save_path, 
-                    suffix='-' + str(style_weight))
+                    infer_weight)
 
         print('\n>>> Successfully! Done all stylizing...\n')
 
