@@ -25,7 +25,7 @@ INFERRING_CONTENT_DIR = 'images/Images/content'
 INFERRING_STYLE_DIR = 'images/Images/style'
 OUTPUTS_DIR = 'outputs'
 
-infer_weight = 1.0
+infer_weight = 0.5
 def main():
 
     if IS_TRAINING:

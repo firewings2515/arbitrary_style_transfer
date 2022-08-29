@@ -53,3 +53,36 @@ def stylize(contents_path, styles_path, output_dir, encoder_path, model_path,
 
     return outputs
 
+def stylize_one(contents_path, styles_path, encoder_path, model_path, 
+            resize_height=None, resize_width=None, infer_weight=1.0):
+
+    if isinstance(contents_path, str):
+        contents_path = [contents_path]
+    if isinstance(styles_path, str):
+        styles_path = [styles_path]
+
+    with tf.Graph().as_default(), tf.Session() as sess:
+        # build the dataflow graph
+        content = tf.placeholder(
+            tf.float32, shape=(1, None, None, 3), name='content')
+        style   = tf.placeholder(
+            tf.float32, shape=(1, None, None, 3), name='style')
+
+        stn = StyleTransferNet(encoder_path)
+
+        output_image = stn.transform(content, style, infer_weight)
+
+        sess.run(tf.global_variables_initializer())
+
+        # restore the trained model and run the style transferring
+        saver = tf.train.Saver()
+        saver.restore(sess, model_path)
+
+        content_img = get_images(contents_path[0], height=resize_height, width=resize_width)
+        style_img = get_images(styles_path[0])
+        result = sess.run(output_image, 
+                feed_dict={content: content_img, style: style_img})
+        outputs = result[0]
+
+    return outputs
+

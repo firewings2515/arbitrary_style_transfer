@@ -1,0 +1,7 @@
+vgg19_normalised.npz
+models/.DS_Store
+models/checkpoint
+models/info.txt
+models/style_weight_2e0.ckpt.data-00000-of-00001
+models/style_weight_2e0.ckpt.index
+models/style_weight_2e0.ckpt.meta
